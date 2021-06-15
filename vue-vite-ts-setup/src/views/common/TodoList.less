@@ -1,0 +1,13 @@
+.list-icons {
+  cursor: pointer;
+  font-size: 24px; //tsx的时候deep不生效，只能使用这种方式
+  :deep(.anticon) {
+    font-size: 24px;
+  }
+  &.checked {
+    color: @success-color;
+  }
+  &.unchecked {
+    color: @primary-color;
+  }
+}
