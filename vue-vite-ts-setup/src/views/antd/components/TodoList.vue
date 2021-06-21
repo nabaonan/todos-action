@@ -61,13 +61,13 @@
       onDeleteItem: (item: DataItem) => toRaw(item),
     },
     components: {
-      [Checkbox.name]: Checkbox,
-      [Input.name]: Input,
-      [List.name]: List,
-      [List.Item.name]: List.Item,
-      AListItemMeta: List.Item.Meta, //这里用框架List.Item.Meta.name注册不上只能写死
-      [Button.name]: Button,
-      [Popconfirm.name]: Popconfirm,
+      // [Checkbox.name]: Checkbox,
+      // [Input.name]: Input,
+      // [List.name]: List,
+      // [List.Item.name]: List.Item,
+      // AListItemMeta: List.Item.Meta, //这里用框架List.Item.Meta.name注册不上只能写死
+      // [Button.name]: Button,
+      // [Popconfirm.name]: Popconfirm,
     },
     setup(props) {
       const { edit, finishEdit, cancelEdit, toggle } = useEdit(

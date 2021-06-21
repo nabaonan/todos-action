@@ -20,16 +20,16 @@
 <script lang="ts">
   import { defineComponent, toRaw } from "vue";
 
-  import { ElForm, ElButton, ElFormItem, ElInput } from "element-plus";
+  // import { ElForm, ElButton, ElFormItem, ElInput } from "element-plus";
   import { useForm } from "@/hooks/useForm";
   import { DataItem } from "@/types/model";
 
   export default defineComponent({
     components: {
-      ElForm,
-      ElButton,
-      ElInput,
-      ElFormItem,
+      // ElForm,
+      // ElButton,
+      // ElInput,
+      // ElFormItem,
     },
     emits: {
       formSubmit: formState => {

@@ -22,7 +22,7 @@ import { RowData, TableColumn } from "naive-ui/lib/data-table/src/interface";
 import { useEdit } from "@/hooks/useEdit";
 export default defineComponent({
   components: {
-    NDataTable,
+    // NDataTable,
   },
   props: {
     data: {

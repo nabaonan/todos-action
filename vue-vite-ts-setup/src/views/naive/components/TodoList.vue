@@ -49,18 +49,18 @@
 <script lang="ts">
   import { defineComponent, toRaw, PropType } from "vue";
 
-  import {
-    NList,
-    NIcon,
-    NListItem,
-    NThing,
-    NEmpty,
-    NInput,
-    NSpace,
-    NCheckbox,
-    NButton,
-    NPopconfirm,
-  } from "naive-ui";
+  // import {
+  //   NList,
+  //   NIcon,
+  //   NListItem,
+  //   NThing,
+  //   NEmpty,
+  //   NInput,
+  //   NSpace,
+  //   NCheckbox,
+  //   NButton,
+  //   NPopconfirm,
+  // } from "naive-ui";
   import { DataItem } from "@/types/model";
   import { useEdit } from "@/hooks/useEdit";
   import {
@@ -74,16 +74,16 @@
   import { AppsAddIn20Filled } from "@vicons/fluent";
   export default defineComponent({
     components: {
-      NList,
-      NIcon,
-      NThing,
-      NEmpty,
-      NCheckbox,
-      NSpace,
-      NInput,
-      NListItem,
-      NButton,
-      NPopconfirm,
+      // NList,
+      // NIcon,
+      // NThing,
+      // NEmpty,
+      // NCheckbox,
+      // NSpace,
+      // NInput,
+      // NListItem,
+      // NButton,
+      // NPopconfirm,
       Checkmark,
       Checkbox,
       CheckmarkCircle,

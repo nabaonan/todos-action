@@ -2747,7 +2747,7 @@ package-json@^6.3.0:
 
 param-case@^3.0.4:
   version "3.0.4"
-  resolved "https://registry.yarnpkg.com/param-case/-/param-case-3.0.4.tgz#7d17fe4aa12bde34d4a77d91acfb6219caad01c5"
+  resolved "https://repo.huaweicloud.com/repository/npm/param-case/-/param-case-3.0.4.tgz#7d17fe4aa12bde34d4a77d91acfb6219caad01c5"
   integrity sha512-RXlj7zCYokReqWpOPH9oYivUzLYZ5vAPIfEmCTNViosC78F8F0H9y7T7gG2M39ymgutxF5gcFEsyZQSph9Bp3A==
   dependencies:
     dot-case "^3.0.4"
@@ -3858,6 +3858,17 @@ vfonts@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/vfonts/-/vfonts-0.1.0.tgz#c16af37ca044b2725ae55553049280efbe6222a9"
   integrity sha512-vQBcvntBlnAPonAkGNM8iJ9NxE3PucA+V2W95xiN75YJKxirLJvOws2kEyOEO45T4N+YTbQOCR2m77Y05pfVhQ==
+
+vite-plugin-components@^0.11.2:
+  version "0.11.2"
+  resolved "https://repo.huaweicloud.com/repository/npm/vite-plugin-components/-/vite-plugin-components-0.11.2.tgz#83cd0ebf3388329464ccaf6e259a416492a728a3"
+  integrity sha512-FfW88iOmOHx1GlGJ2KT3r51Oyu7pntgkMxv7X7WxwPS69lOCWzmDO0n2+TWiWYPDpboDLJsPKBDeSBN1BhTtXQ==
+  dependencies:
+    chokidar "^3.5.1"
+    debug "^4.3.2"
+    fast-glob "^3.2.5"
+    magic-string "^0.25.7"
+    minimatch "^3.0.4"
 
 vite-plugin-importer@^0.2.1:
   version "0.2.1"
