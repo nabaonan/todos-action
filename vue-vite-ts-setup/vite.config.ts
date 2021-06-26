@@ -143,21 +143,10 @@ export default defineConfig({
             //ant-design-vue
 
             const importName = name.slice(1);
-            const dirName = kebabCase(importName);
-            const compName = pascalCase(importName); //AListItem->ListItem
-            const compPath = getCompPath(compName);
-
-            const sideEffects = [
-              {
-                path: `ant-design-vue/es/${compPath.styleDir}/style`,
-              },
-            ];
-            if (compPath.sideEffects) {
-              sideEffects.push(compPath.sideEffects);
-            }
             return {
-              path: `ant-design-vue/es/${compPath.dirName}/${compPath.compName}`,
-              sideEffects,
+              importName: importName,
+              path: `ant-design-vue/es`,
+              sideEffects: "ant-design-vue/es/style",
             };
           }
           return null;
@@ -165,11 +154,11 @@ export default defineConfig({
       ],
       globalComponentsDeclaration: true,
     }),
-    usePluginImport({
-      libraryName: "ant-design-vue",
-      libraryDirectory: "es",
-      style: "css",
-    }),
+    // usePluginImport({
+    //   libraryName: "ant-design-vue",
+    //   libraryDirectory: "es",
+    //   style: "css",
+    // }),
 
     // styleImport({
     //   libs: [
