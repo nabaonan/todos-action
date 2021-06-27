@@ -1,9 +1,11 @@
 <template>
   <a-button type="danger" @click="clearAll">清除一切</a-button>
   <AddForm @formSubmit="add" />
-
-  
-
+  <a-statistic-countdown
+    title="Countdown"
+    :value="100"
+    style="margin-right: 50px"
+  />
   <a-divider orientation="left">待完成</a-divider>
   <!-- <TodoList :data="unfinish" @on-delete-item="deleteItem" /> -->
   <TodoTable :data="unfinish" @deleteItem="deleteItem" />
@@ -25,12 +27,14 @@
 
   import { mapState, mapActions } from "pinia";
   import { computed } from "@vue/runtime-core";
-  import { unref } from "vue";
+  import { ref, toRefs, unref } from "vue";
   import { formProps } from "ant-design-vue/lib/form";
   import { useComp } from "@/hooks/useAntd";
   import TodoTable from "./components/TodoTableTmpl.vue";
 
   // useComp(Button, Divider);
+
+  const tags = ref(["Movies", "Books", "Music", "Sports"]);
 
   let { finishes, unfinish, add, total, clearAll } = useTodo();
 

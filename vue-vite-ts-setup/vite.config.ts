@@ -20,28 +20,25 @@ interface IMatcher {
 }
 const matchComponents: IMatcher[] = [
   {
-    pattern: /^Menu/,
-    styleDir: "menu",
+    pattern: /^Avatar/,
+    styleDir: "avatar",
   },
   {
-    pattern: /^Layout/,
-    styleDir: "menu",
+    pattern: /^AutoComplete/,
+    styleDir: "auto-complete",
   },
   {
-    pattern: /^Form/,
-    styleDir: "form",
+    pattern: /^Anchor/,
+    styleDir: "anchor",
+  },
+
+  {
+    pattern: /^Badge/,
+    styleDir: "badge",
   },
   {
-    pattern: /^Table/,
-    styleDir: "table",
-  },
-  {
-    pattern: /^Radio/,
-    styleDir: "radio",
-  },
-  {
-    pattern: /^Dropdown/,
-    styleDir: "dropdown",
+    pattern: /^Breadcrumb/,
+    styleDir: "breadcrumb",
   },
   {
     pattern: /^Button/,
@@ -52,8 +49,8 @@ const matchComponents: IMatcher[] = [
     styleDir: "checkbox",
   },
   {
-    pattern: /^List/,
-    styleDir: "list",
+    pattern: /^Card/,
+    styleDir: "card",
   },
   {
     pattern: /^Collapse/,
@@ -64,46 +61,108 @@ const matchComponents: IMatcher[] = [
     styleDir: "descriptions",
   },
   {
-    pattern: /^Tabs/,
+    pattern: /^RangePicker|^WeekPicker|^MonthPicker/,
+    styleDir: "date-picker",
+  },
+  {
+    pattern: /^Dropdown/,
+    styleDir: "dropdown",
+  },
+
+  {
+    pattern: /^Form/,
+    styleDir: "form",
+  },
+  {
+    pattern: /^InputNumber/,
+    styleDir: "input-number",
+  },
+
+  {
+    pattern: /^Input|^Textarea/,
+    styleDir: "input",
+  },
+  {
+    pattern: /^Statistic/,
+    styleDir: "statistic",
+  },
+  {
+    pattern: /^CheckableTag/,
+    styleDir: "tag",
+  },
+  {
+    pattern: /^Layout/,
+    styleDir: "layout",
+  },
+  {
+    pattern: /^Menu|^SubMenu/,
+    styleDir: "menu",
+  },
+
+  {
+    pattern: /^Table/,
+    styleDir: "table",
+  },
+  {
+    pattern: /^Radio/,
+    styleDir: "radio",
+  },
+
+  {
+    pattern: /^Image/,
+    styleDir: "image",
+  },
+
+  {
+    pattern: /^List/,
+    styleDir: "list",
+  },
+
+  {
+    pattern: /^Tab/,
     styleDir: "tabs",
   },
   {
     pattern: /^Mentions/,
     styleDir: "mentions",
   },
-  {
-    pattern: /^Select/,
-    styleDir: "select",
-  },
+
   {
     pattern: /^Mentions/,
     styleDir: "mentions",
   },
+
   {
-    pattern: /^Anchor/,
-    styleDir: "anchor",
+    pattern: /^Step/,
+    styleDir: "steps",
   },
   {
-    pattern: /^Typography/,
-    styleDir: "typography",
+    pattern: /^Skeleton/,
+    styleDir: "skeleton",
+  },
+
+  {
+    pattern: /^Select/,
+    styleDir: "select",
   },
   {
     pattern: /^TreeSelect/,
     styleDir: "tree-select",
   },
   {
-    pattern: /^Tree/,
+    pattern: /^Tree|^DirectoryTree/,
     styleDir: "tree",
   },
   {
-    pattern: /^Step/,
-    styleDir: "steps",
+    pattern: /^Typography/,
+    styleDir: "typography",
   },
   {
-    pattern: /^RangePicker|^WeekPicker|^MonthPicker/,
-    styleDir: "date-picker",
+    pattern: /^Timeline/,
+    styleDir: "timeline",
   },
 ];
+
 export default defineConfig({
   plugins: [
     vue(),
@@ -123,26 +182,30 @@ export default defineConfig({
             };
           } else if (name.match(/^A[A-Z]/)) {
             //Ant-Design-Vue
-
+            let importStyle = true;
             const importName = name.slice(1);
             let styleDir;
-            const total = matchComponents.length;
-            for (let i = 0; i < total; i++) {
-              const matcher = matchComponents[i];
-              if (importName.match(matcher.pattern)) {
-                styleDir = matcher.styleDir;
-                break;
+            if (importStyle) {
+              const total = matchComponents.length;
+              for (let i = 0; i < total; i++) {
+                const matcher = matchComponents[i];
+                if (importName.match(matcher.pattern)) {
+                  styleDir = matcher.styleDir;
+                  break;
+                }
               }
-            }
 
-            if (!styleDir) {
-              styleDir = kebabCase(importName);
+              if (!styleDir) {
+                styleDir = kebabCase(importName);
+              }
             }
 
             return {
               importName: importName,
               path: `ant-design-vue/es`,
-              sideEffects: `ant-design-vue/es/${styleDir}/style`,
+              sideEffects: importStyle
+                ? `ant-design-vue/es/${styleDir}/style`
+                : undefined,
             };
           }
           return null;
