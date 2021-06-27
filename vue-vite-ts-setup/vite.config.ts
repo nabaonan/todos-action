@@ -150,6 +150,12 @@ export default defineConfig({
       ],
       globalComponentsDeclaration: true,
     }),
+    //tsx用
+    usePluginImport({
+      libraryName: "ant-design-vue",
+      libraryDirectory: "es",
+      style: "css",
+    }),
   ],
   resolve: {
     alias: [

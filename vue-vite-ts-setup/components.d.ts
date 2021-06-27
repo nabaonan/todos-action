@@ -9,6 +9,7 @@ declare module 'vue' {
     ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent']
     ALayoutFooter: typeof import('ant-design-vue/es')['LayoutFooter']
     ALayout: typeof import('ant-design-vue/es')['Layout']
+    ATable: typeof import('ant-design-vue/es')['Table']
     AButton: typeof import('ant-design-vue/es')['Button']
     ADivider: typeof import('ant-design-vue/es')['Divider']
     AInput: typeof import('ant-design-vue/es')['Input']
@@ -20,14 +21,11 @@ declare module 'vue' {
     APopconfirm: typeof import('ant-design-vue/es')['Popconfirm']
     AListItem: typeof import('ant-design-vue/es')['ListItem']
     AList: typeof import('ant-design-vue/es')['List']
-    ATable: typeof import('ant-design-vue/es')['Table']
     ElButton: typeof import('element-plus/lib/el-button')['default']
     ElDivider: typeof import('element-plus/lib/el-divider')['default']
-    ElInput: typeof import('element-plus/lib/el-input')['default']
-    ElFormItem: typeof import('element-plus/lib/el-form-item')['default']
-    ElForm: typeof import('element-plus/lib/el-form')['default']
     ElCheckbox: typeof import('element-plus/lib/el-checkbox')['default']
     ElDescriptionsItem: typeof import('element-plus/lib/el-descriptions-item')['default']
+    ElInput: typeof import('element-plus/lib/el-input')['default']
     ElRow: typeof import('element-plus/lib/el-row')['default']
     ElSpace: typeof import('element-plus/lib/el-space')['default']
     ElPopconfirm: typeof import('element-plus/lib/el-popconfirm')['default']
@@ -36,6 +34,8 @@ declare module 'vue' {
     ElEmpty: typeof import('element-plus/lib/el-empty')['default']
     ElTableColumn: typeof import('element-plus/lib/el-table-column')['default']
     ElTable: typeof import('element-plus/lib/el-table')['default']
+    ElFormItem: typeof import('element-plus/lib/el-form-item')['default']
+    ElForm: typeof import('element-plus/lib/el-form')['default']
   }
 }
 
