@@ -46,17 +46,8 @@
 
 <script lang="ts">
   import { defineComponent, PropType, toRaw } from "vue";
-  // import {
-  //   ElTable,
-  //   ElTableColumn,
-  //   ElCheckbox,
-  //   ElInput,
-  //   ElButton,
-  //   ElPopconfirm,
-  // } from "element-plus";
   import { DataItem } from "@/types/model";
   import { useEdit } from "@/hooks/useEdit";
-  import { useComp } from "@/hooks/useAntd";
   export default defineComponent({
     props: {
       data: {
@@ -73,14 +64,7 @@
     },
 
     setup(props) {
-      // useComp(
-      //   ElTable,
-      //   ElTableColumn,
-      //   ElButton,
-      //   ElCheckbox,
-      //   ElInput,
-      //   ElPopconfirm
-      // );
+    
       const { edit, finishEdit, cancelEdit, toggle } = useEdit(
         props.data as DataItem[]
       );

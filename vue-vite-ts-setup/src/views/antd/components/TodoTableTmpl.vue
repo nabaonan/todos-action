@@ -32,7 +32,7 @@
             cancel-text="取消"
             @confirm="$emit('deleteItem', record)"
           >
-            <a-button type="danger" ghost>删除</a-button>
+            <a-button danger ghost>删除</a-button>
           </a-popconfirm>
           <a-button @click="edit(record)">编辑</a-button>
         </template>

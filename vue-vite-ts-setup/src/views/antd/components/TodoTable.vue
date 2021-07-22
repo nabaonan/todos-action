@@ -33,7 +33,7 @@ export default defineComponent({
     }
   },
   setup(props, { emit }) {
-    useComp(Table)
+    // useComp(Table)
     const { edit, finishEdit, cancelEdit, toggle } = useEdit(props.data as DataItem[]);
 
     const renderActions = (item: DataItem): JSX.Element => (
@@ -58,7 +58,7 @@ export default defineComponent({
                   }
                 }
               >
-                <Button type="danger" ghost>删除</Button>
+                <Button danger ghost>删除</Button>
               </Popconfirm>
               <Button onClick={() => edit(item)} type="primary" ghost>编辑</Button>
             </>

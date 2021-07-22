@@ -24,6 +24,7 @@
   // import { Form, Input, Button, Space } from "ant-design-vue";
   import { useForm } from "@/hooks/useForm";
   import { useComp } from "@/hooks/useAntd";
+  import { DataItem } from "@/types/model";
 
   export default defineComponent({
     name: "AddForm",
@@ -33,18 +34,24 @@
       },
     },
     setup(props, { emit }) {
-      const { onSubmit, formRef, rules, formState, reset } = useForm();
-
-      // useComp(Form, Input, Button, Space);
+      const { onSubmit, formRef, rules, formState, reset,labelCol,wrapperCol } = useForm();
 
       return {
         formState,
         formRef,
         rules,
         reset,
-        labelCol: { span: 4 },
-        wrapperCol: { span: 14 },
-        onSubmit,
+        labelCol,
+        wrapperCol,
+        onSubmit: () => {
+          onSubmit().then(()=>{
+            emit("formSubmit", formState);
+          }).then(()=>{
+            console.log('reset')
+            reset()
+          })
+          
+        },
       };
     },
   });

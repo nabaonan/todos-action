@@ -13,7 +13,6 @@
 
 <script lang="ts">
   import { defineComponent } from "vue";
-  // import { NButton, NDivider } from "naive-ui";
   import { useTodo } from "@/hooks/useTodo";
   import { useDelete } from "@/hooks/useDelete";
   import { DataItem } from "@/types/model";
@@ -22,10 +21,8 @@
   import TodoTable from "./components/TodoTable.vue";
   export default defineComponent({
     components: {
-      // NButton,
-      // NDivider,
       TodoList,
-      AddForm,
+      AddForm,//自动按需的重名的组件通过手动注册可以不警告报错
       TodoTable,
     },
     setup() {

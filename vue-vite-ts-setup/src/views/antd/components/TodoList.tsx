@@ -76,7 +76,7 @@ export default defineComponent({
               }
             }
           >
-            <Button type='danger' ghost>删除</Button>
+            <Button danger ghost>删除</Button>
           </Popconfirm>
           <Button onClick={() => edit(item)}>编辑</Button>
         </>

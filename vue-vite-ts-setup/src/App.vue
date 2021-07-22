@@ -54,12 +54,12 @@
   export default defineComponent({
     name: "App",
     components: {
-      [Menu.name]: Menu,
-      [Menu.Item.name]: Menu.Item,
-      [Layout.name]: Layout,
-      [Layout.Header.name]: Layout.Header,
-      [Layout.Content.name]: Layout.Content,
-      [Layout.Footer.name]: Layout.Footer,
+      // [Menu.name]: Menu,
+      // [Menu.Item.name]: Menu.Item,
+      // [Layout.name]: Layout,
+      // [Layout.Header.name]: Layout.Header,
+      // [Layout.Content.name]: Layout.Content,
+      // [Layout.Footer.name]: Layout.Footer,
     },
     setup() {
       const navs: Nav[] = [
@@ -73,11 +73,11 @@
           path: "/tmpl",
           displayName: "antd-script-tmpl",
         },
-        {
-          key: "/script-tsx",
-          path: "/script-tsx",
-          displayName: "antd-script-tsx(回显有问题)",
-        },
+        // {
+        //   key: "/script-tsx",
+        //   path: "/script-tsx",
+        //   displayName: "antd-script-tsx(回显有问题)",
+        // },
         {
           key: "/elem-tmpl",
           path: "/elem-tmpl",

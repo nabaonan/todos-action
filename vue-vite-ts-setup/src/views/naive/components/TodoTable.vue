@@ -10,7 +10,6 @@
 <script lang="tsx">
 import { computed, defineComponent, h, PropType, VNodeChild } from "vue";
 import {
-  NDataTable,
   NSpace,
   NPopconfirm,
   NInput,
@@ -18,12 +17,9 @@ import {
   NCheckbox
 } from "naive-ui";
 import { DataItem } from "@/types/model";
-import { RowData, TableColumn } from "naive-ui/lib/data-table/src/interface";
+import { RowData } from "naive-ui/lib/data-table/src/interface";
 import { useEdit } from "@/hooks/useEdit";
 export default defineComponent({
-  components: {
-    // NDataTable,
-  },
   props: {
     data: {
       type: Array as PropType<DataItem[]>,

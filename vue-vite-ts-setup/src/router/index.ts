@@ -13,10 +13,10 @@ const routes: RouteRecordRaw[] = [
     path: "/tmpl",
     component: () => import("@/views/antd/script-tmpl.vue"),
   },
-  {
-    path: "/script-tsx",
-    component: () => import("@/views/antd/script-tsx.vue"),
-  },
+  // {
+  //   path: "/script-tsx",
+  //   component: () => import("@/views/antd/script-tsx.vue"),
+  // },
   {
     path: "/naive-tmpl",
     component: () => import("@/views/naive/define-tmpl.vue"),
