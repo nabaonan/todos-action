@@ -13,7 +13,7 @@
 
 <script lang="ts">
   import { defineComponent } from "vue";
-  import { NButton, NDivider } from "naive-ui";
+  // import { NButton, NDivider } from "naive-ui";
   import { useTodo } from "@/hooks/useTodo";
   import { useDelete } from "@/hooks/useDelete";
   import { DataItem } from "@/types/model";
@@ -22,8 +22,8 @@
   import TodoTable from "./components/TodoTable.vue";
   export default defineComponent({
     components: {
-      NButton,
-      NDivider,
+      // NButton,
+      // NDivider,
       TodoList,
       AddForm,
       TodoTable,

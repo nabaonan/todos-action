@@ -43,14 +43,14 @@
 
 <script lang="ts">
   import { defineComponent, PropType, toRaw } from "vue";
-  import {
-    Table,
-    Checkbox,
-    Input,
-    Space,
-    Popconfirm,
-    Button,
-  } from "ant-design-vue";
+  // import {
+  //   Table,
+  //   Checkbox,
+  //   Input,
+  //   Space,
+  //   Popconfirm,
+  //   Button,
+  // } from "ant-design-vue";
   import { useComp } from "@/hooks/useAntd";
   import { DataItem } from "@/types/model";
   import { useEdit } from "@/hooks/useEdit";
@@ -71,7 +71,7 @@
       },
     },
     setup(props) {
-      useComp(Table, Checkbox, Input, Space, Popconfirm, Button);
+      // useComp(Table, Checkbox, Input, Space, Popconfirm, Button);
       const { edit, finishEdit, cancelEdit, toggle } = useEdit(
         props.data as DataItem[]
       );

@@ -18,19 +18,12 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, toRaw } from "vue";
+  import { defineComponent, toRaw } from "@vue/composition-api";
 
   // import { ElForm, ElButton, ElFormItem, ElInput } from "element-plus";
   import { useForm } from "@/hooks/useForm";
-  import { DataItem } from "@/types/model";
 
   export default defineComponent({
-    components: {
-      // ElForm,
-      // ElButton,
-      // ElInput,
-      // ElFormItem,
-    },
     emits: {
       formSubmit: formState => {
         return toRaw(formState);
@@ -38,15 +31,13 @@
     },
 
     setup(props, { emit }) {
-      const { onSubmit, formRef, rules, formState, reset } = useForm();
+      const { onSubmit, formRef, rules, formState } = useForm();
 
       return {
         formState,
         formRef,
         rules,
         onSubmit,
-        reset,
-        // submitForm
       };
     },
   });

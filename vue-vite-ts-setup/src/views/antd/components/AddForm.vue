@@ -21,7 +21,7 @@
 </template>
 <script lang="ts">
   import { defineComponent, toRaw } from "vue";
-  import { Form, Input, Button, Space } from "ant-design-vue";
+  // import { Form, Input, Button, Space } from "ant-design-vue";
   import { useForm } from "@/hooks/useForm";
   import { useComp } from "@/hooks/useAntd";
 
@@ -35,7 +35,7 @@
     setup(props, { emit }) {
       const { onSubmit, formRef, rules, formState, reset } = useForm();
 
-      useComp(Form, Input, Button, Space);
+      // useComp(Form, Input, Button, Space);
 
       return {
         formState,

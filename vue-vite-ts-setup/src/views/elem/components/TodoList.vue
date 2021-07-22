@@ -57,21 +57,21 @@
 
 <script lang="ts">
   import { defineComponent, PropType, toRaw } from "vue";
-  import {
-    ElTable,
-    ElCheckbox,
-    ElIcon,
-    ElTableColumn,
-    ElButton,
-    ElDescriptions,
-    ElDescriptionsItem,
-    ElRow,
-    ElEmpty,
-    ElInput,
-    ElCard,
-    ElSpace,
-    ElPopconfirm,
-  } from "element-plus";
+  // import {
+  //   ElTable,
+  //   ElCheckbox,
+  //   ElIcon,
+  //   ElTableColumn,
+  //   ElButton,
+  //   ElDescriptions,
+  //   ElDescriptionsItem,
+  //   ElRow,
+  //   ElEmpty,
+  //   ElInput,
+  //   ElCard,
+  //   ElSpace,
+  //   ElPopconfirm,
+  // } from "element-plus";
   import { DataItem } from "@/types/model";
   import { useEdit } from "@/hooks/useEdit";
 
@@ -91,19 +91,19 @@
   export default defineComponent({
     name: "ElemTodo",
     components: {
-      ElTable,
-      ElInput,
-      ElCheckbox,
-      ElEmpty,
-      ElIcon,
-      ElSpace,
-      ElRow,
-      ElDescriptions,
-      ElCard,
-      ElPopconfirm,
-      ElTableColumn,
-      ElDescriptionsItem,
-      ElButton,
+      // ElTable,
+      // ElInput,
+      // ElCheckbox,
+      // ElEmpty,
+      // ElIcon,
+      // ElSpace,
+      // ElRow,
+      // ElDescriptions,
+      // ElCard,
+      // ElPopconfirm,
+      // ElTableColumn,
+      // ElDescriptionsItem,
+      // ElButton,
       CheckCircleOutlined,
       CheckSquareOutlined,
       BorderOutlined,

@@ -17,14 +17,14 @@
   import AddForm from "./components/AddForm.vue";
 
   import TodoList from "./components/TodoList.vue";
-  import { ElDivider, ElButton } from "element-plus";
+  // import { ElDivider, ElButton } from "element-plus";
   import TodoTable from "./components/TodoTable.vue";
   export default defineComponent({
     components: {
       TodoList,
       AddForm,
-      ElDivider,
-      ElButton,
+      // ElDivider,
+      // ElButton,
       TodoTable,
     },
     setup() {

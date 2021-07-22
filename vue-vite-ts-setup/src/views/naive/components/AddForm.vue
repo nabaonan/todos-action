@@ -23,16 +23,16 @@
 <script lang="ts">
   import { useForm } from "@/hooks/useForm";
   import { DataItem } from "@/types/model";
-  import { NForm, NFormItem, NInput, NButton, NSpace } from "naive-ui";
+  // import { NForm, NFormItem, NInput, NButton, NSpace } from "naive-ui";
   import { defineComponent } from "vue";
 
   export default defineComponent({
     components: {
-      NForm,
-      NFormItem,
-      NInput,
-      NButton,
-      NSpace,
+      // NForm,
+      // NFormItem,
+      // NInput,
+      // NButton,
+      // NSpace,
     },
     setup(props, { emit }) {
       const { onSubmit, formRef, rules, formState, reset } = useForm();

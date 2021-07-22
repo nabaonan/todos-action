@@ -895,10 +895,10 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-ant-design-vue@2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/ant-design-vue/-/ant-design-vue-2.1.2.tgz#2065d7e63199c0c584919458af57b6a0b597f677"
-  integrity sha512-gDG0wauGVt4LE63behrJaIcq4BB+dgs+dpj9jz17IgKr2MPYSEeKetU/x9Kk8d58cGonz4Ulncg7fBZJ7EljsQ==
+ant-design-vue@^2.2.0-beta.6:
+  version "2.2.0-beta.6"
+  resolved "https://repo.huaweicloud.com/repository/npm/ant-design-vue/-/ant-design-vue-2.2.0-beta.6.tgz#14b20bc7723d9fc628c87870ee5ea4b78a220f8d"
+  integrity sha512-t0hG5W62mHnFyxYf6rztQlaVZMpziyz7jTbeRibBp72h46kIrO3d+RdJhLJQs8T7gfPzj7jJmVq2KFn0s5QeVw==
   dependencies:
     "@ant-design-vue/use" "^0.0.1-0"
     "@ant-design/icons-vue" "^6.0.0"
@@ -906,13 +906,12 @@ ant-design-vue@2.1.2:
     "@simonwep/pickr" "~1.8.0"
     array-tree-filter "^2.1.0"
     async-validator "^3.3.0"
-    dom-align "^1.10.4"
+    dom-align "^1.12.1"
     dom-scroll-into-view "^2.0.0"
-    is-mobile "^2.2.1"
+    lodash "^4.17.21"
     lodash-es "^4.17.15"
     moment "^2.27.0"
     omit.js "^2.0.0"
-    resize-observer-polyfill "^1.5.1"
     scroll-into-view-if-needed "^2.2.25"
     shallow-equal "^1.0.0"
     vue-types "^3.0.0"
@@ -1488,9 +1487,9 @@ doctypes@^1.1.0:
   resolved "https://registry.yarnpkg.com/doctypes/-/doctypes-1.1.0.tgz#ea80b106a87538774e8a3a4a5afe293de489e0a9"
   integrity sha1-6oCxBqh1OHdOijpKWv4pPeSJ4Kk=
 
-dom-align@^1.10.4:
+dom-align@^1.12.1:
   version "1.12.2"
-  resolved "https://registry.yarnpkg.com/dom-align/-/dom-align-1.12.2.tgz#0f8164ebd0c9c21b0c790310493cd855892acd4b"
+  resolved "https://repo.huaweicloud.com/repository/npm/dom-align/-/dom-align-1.12.2.tgz#0f8164ebd0c9c21b0c790310493cd855892acd4b"
   integrity sha512-pHuazgqrsTFrGU2WLDdXxCFabkdQDx72ddkraZNih1KsMcN5qsRSTR9O4VJRlwTPCPb5COYg3LOfiMHHcPInHg==
 
 dom-scroll-into-view@^2.0.0:
@@ -2152,11 +2151,6 @@ is-installed-globally@^0.1.0:
     global-dirs "^0.1.0"
     is-path-inside "^1.0.0"
 
-is-mobile@^2.2.1:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/is-mobile/-/is-mobile-2.2.2.tgz#f6c9c5d50ee01254ce05e739bdd835f1ed4e9954"
-  integrity sha512-wW/SXnYJkTjs++tVK5b6kVITZpAZPtUrt9SF80vvxGiF/Oywal+COk1jlRkiVq15RFNEQKQY31TkV24/1T5cVg==
-
 is-module@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-module/-/is-module-1.0.0.tgz#3258fb69f78c14d5b815d664336b4cffb6441591"
@@ -2747,7 +2741,7 @@ package-json@^6.3.0:
 
 param-case@^3.0.4:
   version "3.0.4"
-  resolved "https://registry.yarnpkg.com/param-case/-/param-case-3.0.4.tgz#7d17fe4aa12bde34d4a77d91acfb6219caad01c5"
+  resolved "https://repo.huaweicloud.com/repository/npm/param-case/-/param-case-3.0.4.tgz#7d17fe4aa12bde34d4a77d91acfb6219caad01c5"
   integrity sha512-RXlj7zCYokReqWpOPH9oYivUzLYZ5vAPIfEmCTNViosC78F8F0H9y7T7gG2M39ymgutxF5gcFEsyZQSph9Bp3A==
   dependencies:
     dot-case "^3.0.4"
@@ -3858,6 +3852,17 @@ vfonts@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/vfonts/-/vfonts-0.1.0.tgz#c16af37ca044b2725ae55553049280efbe6222a9"
   integrity sha512-vQBcvntBlnAPonAkGNM8iJ9NxE3PucA+V2W95xiN75YJKxirLJvOws2kEyOEO45T4N+YTbQOCR2m77Y05pfVhQ==
+
+vite-plugin-components@^0.11.2:
+  version "0.11.2"
+  resolved "https://repo.huaweicloud.com/repository/npm/vite-plugin-components/-/vite-plugin-components-0.11.2.tgz#83cd0ebf3388329464ccaf6e259a416492a728a3"
+  integrity sha512-FfW88iOmOHx1GlGJ2KT3r51Oyu7pntgkMxv7X7WxwPS69lOCWzmDO0n2+TWiWYPDpboDLJsPKBDeSBN1BhTtXQ==
+  dependencies:
+    chokidar "^3.5.1"
+    debug "^4.3.2"
+    fast-glob "^3.2.5"
+    magic-string "^0.25.7"
+    minimatch "^3.0.4"
 
 vite-plugin-importer@^0.2.1:
   version "0.2.1"
