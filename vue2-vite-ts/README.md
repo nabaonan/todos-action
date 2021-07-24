@@ -4,10 +4,12 @@
 
 - [Vue 2.x](https://github.com/vuejs/vue)
 - [Vue-Router 3.x](https://github.com/vuejs/vue-router)
+- [CompositionApi](https://github.com/vuejs/composition-api)
 - [Pinia1](https://github.com/posva/pinia/tree/v1) - manage state instead of vuex
 - [ElementUI 2.x](https://github.com/ElemeFE/element) 
 - [ViewUI](https://github.com/view-design/ViewUI)
 - [Vuesax 4.x](https://github.com/lusaxweb/vuesax-next) - still in alpha 
+- [Vite-Plugin-Commonjs](https://github.com/originjs/vite-plugins/tree/main/packages/vite-plugin-commonjs) - a plugin resolve commonjs syntax
 - [Vite-Plugin-Components](https://github.com/antfu/vite-plugin-components) - a vite plugin can auto import ui library on demand
 - TypeScript, of course
 
