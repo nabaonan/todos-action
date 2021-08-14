@@ -82,8 +82,8 @@ export default defineConfig({
 
     //template自动按需加载
     ViteComponents({
-      // dirs: ["src/views"],
-      globalComponentsDeclaration: true,
+      dirs: ["src/views"],
+      // globalComponentsDeclaration: true,
       customComponentResolvers: [
         // VuesaxResolver(),
         ViewUiResolver(),
