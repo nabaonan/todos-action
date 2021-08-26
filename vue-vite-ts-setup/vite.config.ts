@@ -26,13 +26,16 @@ export default defineConfig({
       customComponentResolvers: [
         AntDesignVueResolver(),
         NaiveUiResolver(),
+        // ElementPlusResolver()
         name => {
           if (name.match(/^El[A-Z]/)) {
             //element-plus resolver
-            const dirName = kebabCase(name);
+            const dirName = kebabCase(name.slice(2));
+
             return {
-              path: `element-plus/lib/${dirName}`,
-              sideEffects: `element-plus/lib/theme-chalk/${dirName}.css`,
+              importName: name,
+              path: `element-plus/es`,
+              sideEffects: `element-plus/es/components/${dirName}/style/css`,
             };
           }
         },
