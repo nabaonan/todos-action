@@ -32,6 +32,11 @@ export default new Router({
       component: () => import("@/views/iview/tsx"),
     },
     {
+      path: "/iview-setup",
+      
+      component: () => import("@/views/iview/template-setup.vue"),
+    },
+    {
       path: "/element",
       
       component: () => import("@/views/elem/template-el.vue"),

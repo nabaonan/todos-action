@@ -10,7 +10,7 @@ import ViteComponents, {
 } from "vite-plugin-components";
 import { defineConfig } from "vite";
 import { viteCommonjs } from "@originjs/vite-plugin-commonjs";
-
+import ScriptSetup from 'unplugin-vue2-script-setup/vite'
 
 //-------vuesax  Resolver------------
 const renameMatcher: Record<string, string> = {
@@ -34,6 +34,7 @@ const getPath: (compName: string) => string = (
 import vitePluginImport from "vite-plugin-babel-import";
 import path from "path";
 export default defineConfig({
+
   // 配置别名
   resolve: {
     alias: [
@@ -65,6 +66,8 @@ export default defineConfig({
       //   },
       // },
     }),
+
+    ScriptSetup({ /* options */ }),
 
     viteCommonjs(),
 

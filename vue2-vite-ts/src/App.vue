@@ -22,7 +22,6 @@
       color="#1e2023"
       center-collapsed
       v-model="activeKey"
-   
     >
       <template v-for="nav in navs">
         <vs-navbar-item :key="nav.key" :id="nav.key" @click="choose(nav.key)">
@@ -33,69 +32,73 @@
   </div>
 </template>
 <script lang="ts">
-  interface Nav {
-    key: string;
-    path: string;
-    displayName: string;
-  }
+interface Nav {
+  key: string;
+  path: string;
+  displayName: string;
+}
 
-  interface MenuState {
-    selectedKeys: string[];
-  }
-  import { defineComponent, ref, watchEffect } from "@vue/composition-api";
+interface MenuState {
+  selectedKeys: string[];
+}
+import { defineComponent, ref, watchEffect } from "@vue/composition-api";
 
-  export default defineComponent({
-    setup(props, { root }) {
-      const navs: Nav[] = [
-        {
-          key: "/iview",
-          path: "/iview",
-          displayName: "iview",
-        },
-        {
-          key: "/iview-tsx",
-          path: "/iview-tsx",
-          displayName: "iview-tsx",
-        },
-        {
-          key: "/element",
-          path: "/element",
-          displayName: "element",
-        },
-        {
-          key: "/vuesax",
-          path: "/vuesax",
-          displayName: "vuesax",
-        },
-      ];
+export default defineComponent({
+  setup(props, { root }) {
+    const navs: Nav[] = [
+      {
+        key: "/iview",
+        path: "/iview",
+        displayName: "iview",
+      },
+      {
+        key: "/iview-tsx",
+        path: "/iview-tsx",
+        displayName: "iview-tsx",
+      },
+      {
+        key: "/iview-setup",
+        path: "/iview-setup",
+        displayName: "iview-setup",
+      },
+      {
+        key: "/element",
+        path: "/element",
+        displayName: "element",
+      },
+      {
+        key: "/vuesax",
+        path: "/vuesax",
+        displayName: "vuesax",
+      },
+    ];
 
-      const activeKey = ref("iview");
-      return {
-        activeKey,
-        navs,
-        // choose,
-      };
-    },
-    mounted() {
-      watchEffect(() => {
-        this.activeKey = this.$route.path;
+    const activeKey = ref("iview");
+    return {
+      activeKey,
+      navs,
+    };
+  },
+  mounted() {
+    watchEffect(() => {
+      this.activeKey = this.$route.path;
+    });
+  },
+  methods: {
+    choose(key: string) {
+      console.log("走着", key);
+      this.activeKey = key;
+      console.log(key);
+      this.$router.push({
+        path: key,
       });
     },
-    methods: {
-      choose(key: string) {
-        console.log("走着", key);
-        this.activeKey = key;
-        console.log(key);
-        this.$router.push({
-          path: key,
-        });
-      },
-    },
-  });
+  },
+});
 </script>
 
 <style scoped>
-  .el-header {
-    width: 100%;
-  }
+.el-header {
+  width: 100%;
+}
 </style>
