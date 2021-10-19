@@ -10,37 +10,38 @@
 </template>
 
 <script lang="ts">
-  import { useDelete } from "@/hooks/useDelete";
-  import { useTodo } from "@/hooks/useTodo";
-  import { defineComponent } from "vue";
-  import type { DataItem } from "@/types/model";
-  import AddForm from "./components/AddForm.vue";
+import { useDelete } from "@/hooks/useDelete";
+import { useTodo } from "@/hooks/useTodo";
+import { defineComponent } from "vue";
+import type { DataItem } from "@/types/model";
+import AddForm from "./components/AddForm.vue";
 
-  import TodoList from "./components/TodoList.vue";
-  // import { ElDivider, ElButton } from "element-plus";
-  import TodoTable from "./components/TodoTable.vue";
-  export default defineComponent({
-    components: {
-      TodoList,
-      AddForm,
-      // ElDivider,
-      // ElButton,
-      TodoTable,
-    },
-    setup() {
-      const { finishes, unfinish, add, total, clearAll } = useTodo();
-      const { deleteItem } = useDelete(total as DataItem[]);
+import TodoList from "./components/TodoList.vue";
+// import { ElDivider, ElButton } from "element-plus";
+import TodoTable from "./components/TodoTable.vue";
+// import { ElButton, ElDivider } from "element-plus";
+export default defineComponent({
+  components: {
+    TodoList,
+    AddForm,
+    // ElDivider,
+    // ElButton,
+    TodoTable,
+  },
+  setup() {
+    const { finishes, unfinish, add, total, clearAll } = useTodo();
+    const { deleteItem } = useDelete(total as DataItem[]);
 
-      return {
-        finishes,
-        unfinish,
-        add,
-        total,
-        deleteItem,
-        clearAll,
-      };
-    },
-  });
+    return {
+      finishes,
+      unfinish,
+      add,
+      total,
+      deleteItem,
+      clearAll,
+    };
+  },
+});
 </script>
 
 <style scoped></style>

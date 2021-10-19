@@ -4,14 +4,15 @@ import styleImport from "vite-plugin-style-import";
 import path from "path";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import usePluginImport from "vite-plugin-importer";
-import ViteComponents, {
+import ViteComponents from "unplugin-vue-components/vite";
+import {
   AntDesignVueResolver,
   ElementPlusResolver,
-  ImportInfo,
-  kebabCase,
   NaiveUiResolver,
-} from "vite-plugin-components";
+} from "unplugin-vue-components/resolvers";
 import { generateModifyVars } from "./build/style/generateModifyVars";
+
+import ElementPlus from "unplugin-element-plus/vite";
 // https://vitejs.dev/config/
 interface IMatcher {
   pattern: RegExp;
@@ -19,28 +20,25 @@ interface IMatcher {
 }
 
 export default defineConfig({
+  // base: "/dist/",
   plugins: [
     vue(),
     vueJsx(),
+    // ElementPlus({
+    //   // options
+    // }),
     ViteComponents({
-      customComponentResolvers: [
-        AntDesignVueResolver(),
+      // dirs: ['./components', './', , 'src/components'],
+      resolvers: [
+        AntDesignVueResolver({
+          resolveIcons: true,
+        }),
+        ElementPlusResolver({
+          importStyle: "css",
+        }),
         NaiveUiResolver(),
-        // ElementPlusResolver()
-        name => {
-          if (name.match(/^El[A-Z]/)) {
-            //element-plus resolver
-            const dirName = kebabCase(name.slice(2));
-
-            return {
-              importName: name,
-              path: `element-plus/es`,
-              sideEffects: `element-plus/es/components/${dirName}/style/css`,
-            };
-          }
-        },
       ],
-      globalComponentsDeclaration: true,
+      // globalComponentsDeclaration: true,
     }),
     //tsx用
     usePluginImport({
@@ -57,6 +55,19 @@ export default defineConfig({
       },
     ],
   },
+  // build: {
+  //   rollupOptions: {
+  //     output: {
+
+  //       manualChunks(id) {
+  //         if (id.includes('node_modules') && id.includes('element-plus')) {
+  //           console.log(id)
+  //           return id.toString().split('node_modules/')[1].split('/')[0].toString()
+  //         }
+  //       }
+  //     }
+  //   }
+  // },
   css: {
     preprocessorOptions: {
       less: {
