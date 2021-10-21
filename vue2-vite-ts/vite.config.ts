@@ -1,40 +1,34 @@
 import { createVuePlugin } from "vite-plugin-vue2";
-import ViteComponents, {
-  kebabCase,
-  camelCase,
-  pascalCase,
+
+import {
   ElementUiResolver,
   ViewUiResolver,
-  // AntDesignVueResolver,
-  // VuesaxResolver
-} from "vite-plugin-components";
+} from "unplugin-vue-components/resolvers";
+
+import ViteComponents from "unplugin-vue-components/vite";
 import { defineConfig } from "vite";
 import { viteCommonjs } from "@originjs/vite-plugin-commonjs";
-import ScriptSetup from 'unplugin-vue2-script-setup/vite'
+import ScriptSetup from "unplugin-vue2-script-setup/vite";
 
 //-------vuesax  Resolver------------
 const renameMatcher: Record<string, string> = {
-  VsTr: 'vsTableTr',
-  VsTh: 'vsTableTh',
-  VsTd: 'vsTableTd',
-}
+  VsTr: "vsTableTr",
+  VsTh: "vsTableTh",
+  VsTd: "vsTableTd",
+};
 const renameDir = (compName: string): string => {
-  const renameDir = renameMatcher[compName]
-  return renameDir ?? `${compName[0].toLowerCase()}${compName.slice(1)}`
-}
+  const renameDir = renameMatcher[compName];
+  return renameDir ?? `${compName[0].toLowerCase()}${compName.slice(1)}`;
+};
 
-const getPath: (compName: string) => string = (
-  compName,
-) => {
-  return `vuesax/dist/${renameDir(compName)}`
-}
+const getPath: (compName: string) => string = compName => {
+  return `vuesax/dist/${renameDir(compName)}`;
+};
 //-------vuesax  Resolver------------
-
 
 import vitePluginImport from "vite-plugin-babel-import";
 import path from "path";
 export default defineConfig({
-
   // 配置别名
   resolve: {
     alias: [
@@ -67,7 +61,9 @@ export default defineConfig({
       // },
     }),
 
-    ScriptSetup({ /* options */ }),
+    ScriptSetup({
+      /* options */
+    }),
 
     viteCommonjs(),
 
@@ -84,25 +80,23 @@ export default defineConfig({
     // ]),
 
     //template自动按需加载
+
     ViteComponents({
       dirs: ["src/views"],
-      // globalComponentsDeclaration: true,
-      customComponentResolvers: [
+
+      resolvers: [
         // VuesaxResolver(),
         ViewUiResolver(),
         ElementUiResolver(),
         // AntDesignVueResolver(),
         name => {
-
           if (name.match(/^Vs[A-Z]/)) {
             return {
-              path:  getPath(name),
-              sideEffects: [
-                'vuesax/dist/vuesax.css',
-              ],
+              path: getPath(name),
+              sideEffects: ["vuesax/dist/vuesax.css"],
             };
           }
-        
+
           // else if (name.match(/^Ui[A-Z]/)) {
           //   // const compName = name.slice(2)
           //   // const partialName = kebabCase(compName)

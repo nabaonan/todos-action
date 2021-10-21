@@ -8,7 +8,7 @@
 - [Ant Design Vue 2.x](https://github.com/vueComponent/ant-design-vue)
 - [Element-Plus](https://github.com/element-plus/element-plus) 
 - [Naive UI](https://github.com/TuSimple/naive-ui)
-- [Vite-Plugin-Components](https://github.com/antfu/vite-plugin-components) - a vite plugin can auto import ui library on demand
+- [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components) - a vite plugin can auto import ui library on demand
 - TypeScript, of course
 
 ## Installation

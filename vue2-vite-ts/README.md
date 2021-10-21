@@ -10,7 +10,7 @@
 - [ViewUI](https://github.com/view-design/ViewUI)
 - [Vuesax 4.x](https://github.com/lusaxweb/vuesax-next) - still in alpha 
 - [Vite-Plugin-Commonjs](https://github.com/originjs/vite-plugins/tree/main/packages/vite-plugin-commonjs) - a plugin resolve commonjs syntax
-- [Vite-Plugin-Components](https://github.com/antfu/vite-plugin-components) - a vite plugin can auto import ui library on demand
+- [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components) - a vite plugin can auto import ui library on demand
 - TypeScript, of course
 
 ## Installation
