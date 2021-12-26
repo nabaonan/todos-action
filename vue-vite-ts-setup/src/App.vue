@@ -88,6 +88,11 @@
           path: "/naive-tmpl",
           displayName: "naive-tmpl",
         },
+        {
+          key: "/layui",
+          path: "/layui",
+          displayName: "layui",
+        },
       ];
       const router = useRouter();
       const state = reactive<MenuState>({

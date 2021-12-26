@@ -28,7 +28,8 @@ export default defineConfig({
     //   // options
     // }),
     ViteComponents({
-      // dirs: ['./components', './', , 'src/components'],
+      dirs: ['./', './components','src/components'],
+      directoryAsNamespace: true,
       resolvers: [
         AntDesignVueResolver({
           resolveIcons: true,
@@ -37,8 +38,28 @@ export default defineConfig({
           importStyle: "css",
         }),
         NaiveUiResolver(),
+        (name: string) => {
+          
+    
+          if (name.match(/^Lay/)) {
+         
+            const importName = name.slice(3)
+           
+            const path = `@layui/layui-vue/lib/layui-vue.es`
+            return {
+              importName:name,
+              path,
+              sideEffects: [
+                '@layui/layui-vue/lib/index.css'
+              ]
+            }
+          }
+        },
+      
       ],
-      // globalComponentsDeclaration: true,
+      // include: [/@layui/],
+      //  extensions: ['vue'],
+      // include: [/\.vue$/, /\.vue\?vue/,/[\\/]node_modules[\\/]/],
     }),
     //tsx用
     usePluginImport({

@@ -1,0 +1,14 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 error pnpm": {
+    "code": "ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND",
+    "err": {
+      "name": "pnpm",
+      "message": "No package.json (or package.yaml, or package.json5) was found in \"/Users/nbn/workspace/github/todos-action\".",
+      "code": "ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND",
+      "stack": "pnpm: No package.json (or package.yaml, or package.json5) was found in \"/Users/nbn/workspace/github/todos-action\".\n    at readProjectManifest (/usr/local/lib/node_modules/pnpm/dist/pnpm.cjs:19775:13)\n    at async Object.readProjectManifestOnly (/usr/local/lib/node_modules/pnpm/dist/pnpm.cjs:19779:28)\n    at async readProjectManifestOnly (/usr/local/lib/node_modules/pnpm/dist/pnpm.cjs:43289:24)\n    at async Object.handler (/usr/local/lib/node_modules/pnpm/dist/pnpm.cjs:178475:24)\n    at async /usr/local/lib/node_modules/pnpm/dist/pnpm.cjs:182688:21\n    at async run (/usr/local/lib/node_modules/pnpm/dist/pnpm.cjs:182662:34)\n    at async runPnpm (/usr/local/lib/node_modules/pnpm/dist/pnpm.cjs:182874:5)\n    at async /usr/local/lib/node_modules/pnpm/dist/pnpm.cjs:182866:7"
+    }
+  }
+}

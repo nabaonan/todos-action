@@ -33,6 +33,11 @@ export function useForm() {
     if (formRef.value.resetFields) {
       formRef.value.resetFields();
     }
+    if (formRef.value.reset) { 
+      //layui
+     
+      formRef.value.reset();
+    }
   };
 
   return {

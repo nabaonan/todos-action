@@ -21,6 +21,10 @@ const routes: RouteRecordRaw[] = [
     path: "/naive-tmpl",
     component: () => import("@/views/naive/define-tmpl.vue"),
   },
+  {
+    path: "/layui",
+    component: () => import("@/views/layui/tmpl.vue"),
+  }
 ];
 
 export default createRouter({
