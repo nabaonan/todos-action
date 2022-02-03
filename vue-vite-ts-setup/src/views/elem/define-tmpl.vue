@@ -1,5 +1,5 @@
 <template>
-  <el-button type="danger" size="mini" @click="clearAll">清除一切</el-button>
+  <el-button type="danger"  @click="clearAll">清除一切</el-button>
   <add-form @formSubmit="add"></add-form>
   <el-divider content-position="left">未完成</el-divider>
   <!-- <todo-list :data="unfinish" @delete-item="deleteItem"></todo-list> -->

@@ -20,7 +20,6 @@
 <script lang="ts">
   import { defineComponent, toRaw } from "@vue/composition-api";
 
-  // import { ElForm, ElButton, ElFormItem, ElInput } from "element-plus";
   import { useForm } from "@/hooks/useForm";
 
   export default defineComponent({

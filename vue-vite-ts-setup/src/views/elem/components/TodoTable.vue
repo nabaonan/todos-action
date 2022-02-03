@@ -48,7 +48,6 @@
   import { defineComponent, PropType, toRaw } from "vue";
   import { DataItem } from "@/types/model";
   import { useEdit } from "@/hooks/useEdit";
-  // import{ElTable}from 'element-plus'
   export default defineComponent({
     props: {
       data: {

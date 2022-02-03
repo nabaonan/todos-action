@@ -12,76 +12,33 @@
     </i-form>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from "@vue/composition-api";
+<script lang="ts" setup>
 
 import { useForm } from "@/hooks/useForm";
+const { onSubmit, formRef, rules, formState } = useForm();
 
-export default defineComponent({
-  name: "AddForm",
-  setup(props, { emit }) {
-    const { onSubmit, formRef, rules, formState } = useForm();
 
-    const reset = () => {
-      formRef.value.resetFields();
-    };
+const emit: any = defineEmits()
 
-    const submit = () => {
-      onSubmit(
-        emit,
-        () => {
-          return new Promise((resolve, reject) => {
-            formRef.value.validate(valid => {
-              if (valid) {
-                resolve(true);
-              } else {
-                resolve(false);
-              }
-            });
-          });
-        },
-        reset
-      );
-    };
+const reset = () => {
+  formRef.value.resetFields();
+};
 
-    const cityList = [
-      {
-        value: "New York",
-        label: "New York",
-      },
-      {
-        value: "London",
-        label: "London",
-      },
-      {
-        value: "Sydney",
-        label: "Sydney",
-      },
-      {
-        value: "Ottawa",
-        label: "Ottawa",
-      },
-      {
-        value: "Paris",
-        label: "Paris",
-      },
-      {
-        value: "Canberra",
-        label: "Canberra",
-      },
-    ];
-
-    const list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-    return {
-      list1,
-      cityList,
-      submit,
-      formRef,
-      formState,
-      rules,
-      reset,
-    };
-  },
-});
+const submit = () => {
+  onSubmit(
+    emit,
+    () => {
+      return new Promise((resolve, reject) => {
+        formRef.value.validate(valid => {
+          if (valid) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        });
+      });
+    },
+    reset
+  );
+};
 </script>

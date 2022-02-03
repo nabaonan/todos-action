@@ -4,7 +4,7 @@
     :model="formState"
     :rules="rules"
     label-width="80px"
-    size="mini"
+    
   >
     <el-form-item label="todo名称" prop="title">
       <el-input placeholder="这是必填项" v-model="formState.title"></el-input>

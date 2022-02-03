@@ -30,7 +30,7 @@ export function useForm() {
     reset: Function
   ) => Promise<void>;
 
-  const onSubmit: SubmitType = (emit, validate, reset) => {
+  const onSubmit: SubmitType = (emit: (key: string, param) => void, validate, reset) => {
     return validate()
       .then(result => {
         if (result) {

@@ -1,15 +1,13 @@
 import Vue from "vue";
-import VueCompositionAPI from "@vue/composition-api";
+import VueCompositionAPI, { createApp} from "@vue/composition-api";
 Vue.use(VueCompositionAPI);
 
 import App from "./App.vue";
 import router from './router'
-import { createPinia, PiniaPlugin } from 'pinia'
+import { createPinia, PiniaVuePlugin } from 'pinia'
+Vue.use(PiniaVuePlugin)
 
-Vue.use(PiniaPlugin)
 
-
-const store = createPinia();
 
 //element-ui配置
 
@@ -38,12 +36,18 @@ Vue.prototype.$Notice = Notice;
 Vue.prototype.$Spin = Spin;
 
 
-
-new Vue({
-  el: "#app",
-  router,
-  pinia:store,
+createApp({
+  pinia: createPinia(),
   render: h => h(App),
-});
+  router,
+}).mount('#app')
+
+// app.use()
+// new Vue({
+//   el: "#app",
+//   router,
+//   pinia:store,
+//   render: h => h(App),
+// });
 
 

@@ -2,8 +2,8 @@
   <div>
     <el-header>
       <el-menu :default-active="activeKey" mode="horizontal" @select="choose">
-        <template v-for="nav in navs">
-          <el-menu-item :index="nav.key" :key="nav.key">{{
+        <template v-for="nav in navs" >
+          <el-menu-item :index="nav.key">{{
             nav.displayName
           }}</el-menu-item>
         </template>
@@ -24,7 +24,7 @@
       v-model="activeKey"
     >
       <template v-for="nav in navs">
-        <vs-navbar-item :key="nav.key" :id="nav.key" @click="choose(nav.key)">
+        <vs-navbar-item  :id="nav.key" @click="choose(nav.key)">
           {{ nav.displayName }}
         </vs-navbar-item>
       </template>
@@ -86,7 +86,6 @@ export default defineComponent({
   },
   methods: {
     choose(key: string) {
-      console.log("走着", key);
       this.activeKey = key;
       console.log(key);
       this.$router.push({

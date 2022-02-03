@@ -12,6 +12,7 @@ import {
 } from "unplugin-vue-components/resolvers";
 import { generateModifyVars } from "./build/style/generateModifyVars";
 
+import { camelCase} from 'unplugin-vue-components'
 import ElementPlus from "unplugin-element-plus/vite";
 // https://vitejs.dev/config/
 interface IMatcher {
@@ -43,9 +44,12 @@ export default defineConfig({
     
           if (name.match(/^Lay/)) {
          
-            const importName = name.slice(3)
            
-            const path = `@layui/layui-vue/lib/layui-vue.es`
+            // const importName = name.slice(3)
+
+            // console.log('name=',importName)
+           
+            const path = `@layui/layui-vue`
             return {
               importName:name,
               path,

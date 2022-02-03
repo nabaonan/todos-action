@@ -30,11 +30,11 @@
             style="width: 100%; justify-content: flex-end"
           >
             <template v-if="item.editing">
-              <el-button size="mini" @click="finishEdit(item)">保存</el-button>
-              <el-button size="mini" @click="cancelEdit(item)">取消</el-button>
+              <el-button size="small" @click="finishEdit(item)">保存</el-button>
+              <el-button size="small" @click="cancelEdit(item)">取消</el-button>
             </template>
             <template v-else>
-              <el-button size="mini" @click="edit(item)">编辑</el-button>
+              <el-button size="small" @click="edit(item)">编辑</el-button>
 
               <el-popconfirm
                 title="确认删除吗"
@@ -42,7 +42,7 @@
                 @confirm="$emit('deleteItem', item)"
               >
                 <template #reference>
-                  <el-button size="mini" type="danger">删除</el-button>
+                  <el-button size="small" type="danger">删除</el-button>
                 </template>
               </el-popconfirm>
             </template>
@@ -57,29 +57,10 @@
 
 <script lang="ts">
   import { defineComponent, PropType, toRaw } from "vue";
-  // import {
-  //   ElTable,
-  //   ElCheckbox,
-  //   ElIcon,
-  //   ElTableColumn,
-  //   ElButton,
-  //   ElDescriptions,
-  //   ElDescriptionsItem,
-  //   ElRow,
-  //   ElEmpty,
-  //   ElInput,
-  //   ElCard,
-  //   ElSpace,
-  //   ElPopconfirm,
-  // } from "element-plus";
   import { DataItem } from "@/types/model";
   import { useEdit } from "@/hooks/useEdit";
 
-  import {
-    CheckCircleOutlined,
-    CheckSquareOutlined,
-    BorderOutlined,
-  } from "@ant-design/icons-vue";
+
   const todoProps = {
     data: {
       type: Array as PropType<DataItem[]>,
@@ -90,24 +71,6 @@
   };
   export default defineComponent({
     name: "ElemTodo",
-    components: {
-      // ElTable,
-      // ElInput,
-      // ElCheckbox,
-      // ElEmpty,
-      // ElIcon,
-      // ElSpace,
-      // ElRow,
-      // ElDescriptions,
-      // ElCard,
-      // ElPopconfirm,
-      // ElTableColumn,
-      // ElDescriptionsItem,
-      // ElButton,
-      CheckCircleOutlined,
-      CheckSquareOutlined,
-      BorderOutlined,
-    },
     props: todoProps,
     emits: {
       deleteItem: (item: DataItem) => toRaw(item),
