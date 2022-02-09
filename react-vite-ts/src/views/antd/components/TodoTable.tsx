@@ -4,7 +4,8 @@ import { DataItem } from "@/types/model";
 import { Button, Checkbox, Input, Popconfirm, Space, Table } from "antd";
 import { ColumnProps, ColumnsType } from "antd/lib/table";
 import { observer } from "mobx-react-lite";
-import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import InfoDrawer from "./InfoDrawer";
 
 
 interface IProps {
@@ -19,6 +20,10 @@ const TodoTable = (props: IProps) => {
   const [currentEdit, setCurrentEdit] = useState('')
 
   const { todoStore } = useStore()
+
+  const drawer = useRef<{
+    show: (data?: DataItem) => void
+  }>()
 
   let columns: ColumnsType<DataItem> = [
     {
@@ -107,6 +112,10 @@ const TodoTable = (props: IProps) => {
                     setCurrentEdit(item.id)
                     edit(item)
                   }} type="primary" ghost>编辑</Button>
+
+                  <Button type="link" onClick={() => {
+                    drawer.current?.show(item)
+                  }}  >查看</Button>
                 </>
               )
             }
@@ -118,14 +127,18 @@ const TodoTable = (props: IProps) => {
   ];
 
   return (
-    <Table
-      columns={columns}
-      rowKey="id"
-      bordered
-      pagination={false}
+    <>
+      <Table
+        columns={columns}
+        rowKey="id"
+        bordered
+        pagination={false}
 
-      dataSource={props.data}
-    ></Table>
+        dataSource={props.data}
+      ></Table>
+      <InfoDrawer ref={drawer} ></InfoDrawer>
+    </>
+
   )
 
 }

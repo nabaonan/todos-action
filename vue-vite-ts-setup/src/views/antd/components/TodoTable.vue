@@ -1,19 +1,16 @@
 <template>
-  <a-table
-    :columns="columns"
-    rowKey="id"
-    bordered
-    :pagination="false"
-    :data-source="data"
-  ></a-table>
+  <a-table :columns="columns" rowKey="id" bordered :pagination="false" :data-source="data"></a-table>
+
+  <UpdateDrawer ref="drawer"></UpdateDrawer>
 </template>
 
 <script lang="tsx">
-import { defineComponent, PropType, toRaw } from 'vue'
+import { defineComponent, PropType, reactive, ref, toRaw } from 'vue'
 import { Table, Checkbox, Input, Space, Popconfirm, Button } from 'ant-design-vue'
 import { useComp } from '@/hooks/useAntd'
 import { DataItem } from '@/types/model'
 import { useEdit } from '@/hooks/useEdit'
+import UpdateDrawer from './InfoDrawer.vue'
 import { ColumnProps } from 'ant-design-vue/lib/table/interface'
 export default defineComponent({
   props: {
@@ -32,10 +29,13 @@ export default defineComponent({
       return toRaw(item)
     }
   },
+  components:{
+    UpdateDrawer
+  },
   setup(props, { emit }) {
     // useComp(Table)
     const { edit, finishEdit, cancelEdit, toggle } = useEdit(props.data as DataItem[]);
-
+    const drawer = ref()
     const renderActions = (item: DataItem): JSX.Element => (
 
       <Space>
@@ -61,6 +61,11 @@ export default defineComponent({
                 <Button danger ghost>删除</Button>
               </Popconfirm>
               <Button onClick={() => edit(item)} type="primary" ghost>编辑</Button>
+
+              <Button type="link" onClick={() => {
+                console.log(drawer)
+                drawer.value.show(item)
+              }} >详细</Button>
             </>
           )
         }
@@ -72,7 +77,7 @@ export default defineComponent({
       {
         title: "完成",
         fixed: "left",
-        width:70,
+        width: 70,
         customRender: ({ record }: { record: DataItem }) => {
           return <Checkbox v-model={[record.finish, "checked"]}></Checkbox>
         }
@@ -101,7 +106,9 @@ export default defineComponent({
       }
     ];
     return {
-      columns
+      columns,
+
+      drawer
     }
   }
 })
