@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.0.1",
-    "@layui/layui-vue": "^0.3.6",
+    "@layui/layui-vue": "^0.3.7",
     "@vicons/fluent": "^0.11.0",
     "@vicons/ionicons5": "^0.11.0",
     "ant-design-vue": "^2.2.8",
