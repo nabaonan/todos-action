@@ -6,20 +6,22 @@ import { Button, Checkbox, Input, Popconfirm, Space, Table } from "antd";
 import { ColumnProps, ColumnsType } from "antd/lib/table";
 import { observer } from "mobx-react-lite";
 import { MutableRefObject, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { defineComponent, designComponent, designPage, useHooksOnDesign, useReference } from "plain-design-composition";
+import { computed, defineComponent, designComponent, designPage, effect, reactive, ref, useHooksOnDesign, useReference } from "plain-design-composition";
 import InfoDrawer from "./InfoDrawer";
 import { useHookRef } from "@/utils";
+import { useStore } from "@/store";
 
 
 
 interface IProps {
   data: DataItem[]
   onDeleteItem: (item: DataItem) => void
+  onChange: (data: DataItem | undefined) => void
 }
 
 
 
-export default designPage((props) => {
+export default designPage((props: IProps) => {
 
   let drawer: MutableRefObject<{
     show: (data?: DataItem) => void
@@ -31,17 +33,65 @@ export default designPage((props) => {
 
   })
 
+
+
+  const data = ref<DataItem[]>(props.data)
+  const old = ref('')
+  effect(() => {
+    data.value = props.data
+  })
+
+
+  //react里竟然改个属性需要重新整体赋值，这种方式很恶心！！！受不了,  vue才是yyds！！
+  const loopData = (id: string, other: Partial<DataItem>) => {
+    let changeData: DataItem | undefined
+    data.value = data.value.map((item, i) => {
+      if (id == item.id) {
+        changeData = { ...item, ...other }
+        return changeData
+      } else {
+        return item
+      }
+    })
+    props.onChange?.(changeData)
+  }
+
+
+  const edit = (item: DataItem, index: number) => {
+
+    old.value = item.title
+    loopData(item.id, {
+      editing: true,
+    })
+  }
+
+  const finishEdit = (item: DataItem, index: number) => {
+    loopData(item.id, {
+      editing: false
+    })
+  }
+
+  const cancelEdit = (id: string) => {
+    loopData(id, {
+      title: old.value,
+      editing: false
+    })
+
+  }
+
+
   let columns: ColumnsType<DataItem> = [
     {
       title: "完成",
       fixed: "left",
       width: 70,
       render: (text, record, index) => {
-        console.log(record)
 
         return <Checkbox checked={record.finish} onChange={e => {
 
-          record.finish = e.target.checked
+          loopData(record.id, {
+            finish: e.target.checked
+          })
 
         }}  ></Checkbox>
       }
@@ -52,18 +102,17 @@ export default designPage((props) => {
     },
     {
       title: "todo名称",
-      key: "title",
-
-
+      dataIndex: "title",
       render: (text, record, index): React.ReactNode => {
-
-
-
         return (record.editing ? <Input
-          v-model={record.title}
+          value={record.title}
+          onChange={e => {
+            loopData(record.id, {
+              title: e.target.value
+            })
+          }}
         /> : <div onDoubleClick={() => {
-          record.editing = true
-
+          edit(record, index)
         }}>
           {`${record.title}`}
         </div>)
@@ -74,20 +123,17 @@ export default designPage((props) => {
       width: 200,
       fixed: 'right',
       render: (text, record, index): React.ReactNode => {
-
-
         const item = record
-
         return (
           <Space>
             {
               record.editing && (
                 <>
                   <Button onClick={() => {
-                    record.editing = false
+                    finishEdit(item, index)
                   }} type="primary">保存</Button>
                   <Button onClick={() => {
-                    record.editing = false
+                    cancelEdit(item.id)
                   }}>取消</Button>
                 </>
               ) || (
@@ -105,9 +151,8 @@ export default designPage((props) => {
                     <Button danger ghost>删除</Button>
                   </Popconfirm>
                   <Button onClick={() => {
-                    record.editing = true
+                    edit(item, index)
                   }} type="primary" ghost>编辑</Button>
-
                   <Button type="link" onClick={() => {
                     drawer.current?.show(item)
                   }}  >查看</Button>
@@ -121,21 +166,23 @@ export default designPage((props) => {
     }
   ];
 
-  return () => (
+  return () => {
+    return (
 
-    <>
-      {console.log('render', props)}
-      <Table
-        columns={columns}
-        rowKey="id"
-        bordered
-        pagination={false}
+      <>
 
-        dataSource={props.data}
-      ></Table>
-      <InfoDrawer ref={drawer} ></InfoDrawer>
-    </>
+        <Table
+          columns={columns}
+          rowKey="id"
+          bordered
+          pagination={false}
 
-  )
+          dataSource={data.value}
+        ></Table>
+        <InfoDrawer ref={drawer} ></InfoDrawer>
+      </>
+
+    )
+  }
 
 })

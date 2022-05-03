@@ -12,7 +12,7 @@ export function useTodoStore() {
   }>({
     total: []
   })
-
+  
   const unfinish = computed(() => state.total.filter((item: DataItem) => item.finish != true))
   const finishes = computed(() => state.total.filter((item: DataItem) => item.finish))
 
@@ -27,7 +27,6 @@ export function useTodoStore() {
 
   const addItem = (item: DataItem) => {
 
-    console.log('addItem')
     state.total.push({
       id: getUUID(16),
       title: item.title,

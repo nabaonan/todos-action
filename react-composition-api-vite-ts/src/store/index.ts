@@ -1,9 +1,16 @@
 
 import { createContext, useContext } from 'react';
-// import { useTodoStore} from './modules/todo';
+import { useTodoStore } from './modules/todo';
 
-// export const storeContext = createContext({
-//   todoStore: new TodoStore()
-// });
 
-// export const useStore = () => useContext(storeContext);
+export const stores = {
+  todoStore: useTodoStore()
+}
+
+export const StoreContext = createContext(stores);
+
+export const useStore = (storeName: string) => {
+
+  const storeContext = useContext<typeof stores>(StoreContext);
+  return (storeContext as any)[storeName]
+}
