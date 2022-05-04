@@ -41,49 +41,45 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, toRaw } from "vue";
-  import { Button, List, Checkbox, Popconfirm, Input } from "ant-design-vue";
+import { defineComponent, toRaw } from "vue";
 
-  import { DataItem } from "@/types/model";
-  import { useEdit } from "@/hooks/useEdit";
+import { DataItem } from "@/types/model";
+import { useEdit } from "@/hooks/useEdit";
 
-  type Props = {
-    data: DataItem[];
-  };
-  export default defineComponent({
-    name: "TodoList",
-    props: {
-      data: {
-        type: Array,
-      },
+export default defineComponent({
+  name: "TodoList",
+  props: {
+    data: {
+      type: Array,
     },
-    emits: {
-      onDeleteItem: (item: DataItem) => toRaw(item),
-    },
-    components: {
-      // [Checkbox.name]: Checkbox,
-      // [Input.name]: Input,
-      // [List.name]: List,
-      // [List.Item.name]: List.Item,
-      // AListItemMeta: List.Item.Meta, //这里用框架List.Item.Meta.name注册不上只能写死
-      // [Button.name]: Button,
-      // [Popconfirm.name]: Popconfirm,
-    },
-    setup(props) {
-      const { edit, finishEdit, cancelEdit, toggle } = useEdit(
-        props.data as DataItem[]
-      );
+  },
+  emits: {
+    onDeleteItem: (item: DataItem) => toRaw(item),
+  },
+  components: {
+    // [Checkbox.name]: Checkbox,
+    // [Input.name]: Input,
+    // [List.name]: List,
+    // [List.Item.name]: List.Item,
+    // AListItemMeta: List.Item.Meta, //这里用框架List.Item.Meta.name注册不上只能写死
+    // [Button.name]: Button,
+    // [Popconfirm.name]: Popconfirm,
+  },
+  setup(props) {
+    const { edit, finishEdit, cancelEdit, toggle } = useEdit(
+      props.data as DataItem[]
+    );
 
-      return {
-        toggle,
-        edit,
-        finishEdit,
-        cancelEdit,
-        confirm,
-      };
-    },
-  });
+    return {
+      toggle,
+      edit,
+      finishEdit,
+      cancelEdit,
+      confirm,
+    };
+  },
+});
 </script>
 <style lang="less" scoped>
-  @import url("../../common/TodoList.less");
+@import url("../../common/TodoList.less");
 </style>

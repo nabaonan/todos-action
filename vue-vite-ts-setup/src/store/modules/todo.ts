@@ -1,15 +1,15 @@
 import { StoreKey } from "@/enums/localStore";
 import { DataItem } from "@/types/model";
 import { getUUID } from "@/utils";
-import { defineStore } from "pinia";
+
+import { defineStore } from 'pinia';
 
 interface TodoState {
   total: DataItem[]; //总个数
   testName: string;
 }
 
-export const useTodoStore = defineStore({
-  id: "todo",
+export const useTodoStore = defineStore('todo',{
   state: (): TodoState => {
     return {
       total: [],

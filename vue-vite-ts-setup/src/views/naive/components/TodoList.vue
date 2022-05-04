@@ -47,50 +47,49 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, toRaw, PropType } from "vue";
-  import { DataItem } from "@/types/model";
-  import { useEdit } from "@/hooks/useEdit";
-  import {
+import { defineComponent, toRaw, PropType } from "vue";
+import { DataItem } from "@/types/model";
+import { useEdit } from "@/hooks/useEdit";
+import {
+  Checkmark,
+  CheckmarkCircle,
+  CheckmarkDoneCircleOutline,
+  CheckboxOutline,
+  Checkbox,
+} from "@vicons/ionicons5";
+
+import { AppsAddIn20Filled } from "@vicons/fluent";
+export default defineComponent({
+  components: {
     Checkmark,
-    CheckmarkCircle,
-    CheckmarkDoneCircleOutline,
-    CheckboxOutline,
     Checkbox,
-  } from "@vicons/ionicons5";
+    CheckmarkCircle,
+    CheckboxOutline,
+    CheckmarkDoneCircleOutline,
+    AppsAddIn20Filled,
+  },
+  props: {
+    data: {
+      type: Array as PropType<DataItem[]>,
+    },
+  },
+  emits: {
+    onDeleteItem: (item: DataItem) => toRaw(item),
+  },
+  setup(props) {
+    const { edit, finishEdit, cancelEdit, toggle } = useEdit(
+      props.data as DataItem[]
+    );
 
-  import { AppsAddIn20Filled } from "@vicons/fluent";
-  export default defineComponent({
-    components: {
-      Checkmark,
-      Checkbox,
-      CheckmarkCircle,
-      CheckboxOutline,
-      CheckmarkDoneCircleOutline,
-      AppsAddIn20Filled,
-    },
-    props: {
-      data: {
-        type: Array as PropType<DataItem[]>,
-      },
-    },
-    emits: {
-      onDeleteItem: (item: DataItem) => toRaw(item),
-    },
-    setup(props) {
-      const { edit, finishEdit, cancelEdit, toggle } = useEdit(
-        props.data as DataItem[]
-      );
-
-      return {
-        toggle,
-        edit,
-        finishEdit,
-        cancelEdit,
-        confirm,
-      };
-    },
-  });
+    return {
+      toggle,
+      edit,
+      finishEdit,
+      cancelEdit,
+      confirm,
+    };
+  },
+});
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -21,33 +21,32 @@
 </template>
 
 <script lang="ts">
-  import { useForm } from "@/hooks/useForm";
-  import { defineComponent } from "vue";
+import { useForm } from "@/hooks/useForm";
+import { defineComponent } from "vue";
 
-  export default defineComponent({
-    setup(props, { emit }) {
-      const { onSubmit, formRef, rules, formState, reset } = useForm();
+export default defineComponent({
+  setup(props, { emit }) {
+    const { onSubmit, formRef, rules, formState, reset } = useForm();
 
-      return {
-        formState,
-        formRef,
-        rules,
-        reset,
+    return {
+      formState,
+      formRef,
+      rules,
+      reset,
 
-        onSubmit: () => {
-          onSubmit()
-            .then(() => {
-              emit("formSubmit", formState);
-            })
-            .then(() => {
-              console.log("reset");
-              reset();
-            });
-        },
-      };
-    },
-  });
+      onSubmit: () => {
+        onSubmit()
+          .then(() => {
+            emit("formSubmit", formState);
+          })
+          .then(() => {
+            console.log("reset");
+            reset();
+          });
+      },
+    };
+  },
+});
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

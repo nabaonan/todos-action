@@ -12,34 +12,33 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from "vue";
-  import { useTodo } from "@/hooks/useTodo";
-  import { useDelete } from "@/hooks/useDelete";
-  import { DataItem } from "@/types/model";
-  import TodoList from "./components/TodoList.vue";
-  import AddForm from "./components/AddForm.vue";
-  import TodoTable from "./components/TodoTable.vue";
-  export default defineComponent({
-    components: {
-      TodoList,
-      AddForm,//自动按需的重名的组件通过手动注册可以不警告报错
-      TodoTable,
-    },
-    setup() {
-      let { finishes, unfinish, add, total, clearAll } = useTodo();
+import { defineComponent } from "vue";
+import { useTodo } from "@/hooks/useTodo";
+import { useDelete } from "@/hooks/useDelete";
+import { DataItem } from "@/types/model";
+// import TodoList from "./components/TodoList.vue";
+import AddForm from "./components/AddForm.vue";
+import TodoTable from "./components/TodoTable.vue";
+export default defineComponent({
+  components: {
+    // TodoList,
+    AddForm, //自动按需的重名的组件通过手动注册可以不警告报错
+    TodoTable,
+  },
+  setup() {
+    let { finishes, unfinish, add, total, clearAll } = useTodo();
 
-      const { deleteItem } = useDelete(total as DataItem[]);
-      return {
-        clearAll,
-        finishes,
-        unfinish,
-        add,
-        total,
-        deleteItem,
-      };
-    },
-  });
+    const { deleteItem } = useDelete(total as DataItem[]);
+    return {
+      clearAll,
+      finishes,
+      unfinish,
+      add,
+      total,
+      deleteItem,
+    };
+  },
+});
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

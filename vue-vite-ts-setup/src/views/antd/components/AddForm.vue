@@ -20,39 +20,39 @@
   </a-form>
 </template>
 <script lang="ts">
-  import { defineComponent, toRaw } from "vue";
-  // import { Form, Input, Button, Space } from "ant-design-vue";
-  import { useForm } from "@/hooks/useForm";
-  import { useComp } from "@/hooks/useAntd";
-  import { DataItem } from "@/types/model";
+import { defineComponent, toRaw } from "vue";
+// import { Form, Input, Button, Space } from "ant-design-vue";
+import { useForm } from "@/hooks/useForm";
 
-  export default defineComponent({
-    name: "AddForm",
-    emits: {
-      formSubmit: formState => {
-        return toRaw(formState);
-      },
+export default defineComponent({
+  name: "AddForm",
+  emits: {
+    formSubmit: formState => {
+      return toRaw(formState);
     },
-    setup(props, { emit }) {
-      const { onSubmit, formRef, rules, formState, reset,labelCol,wrapperCol } = useForm();
+  },
+  setup(props, { emit }) {
+    const { onSubmit, formRef, rules, formState, reset, labelCol, wrapperCol } =
+      useForm();
 
-      return {
-        formState,
-        formRef,
-        rules,
-        reset,
-        labelCol,
-        wrapperCol,
-        onSubmit: () => {
-          onSubmit().then(()=>{
+    return {
+      formState,
+      formRef,
+      rules,
+      reset,
+      labelCol,
+      wrapperCol,
+      onSubmit: () => {
+        onSubmit()
+          .then(() => {
             emit("formSubmit", formState);
-          }).then(()=>{
-            console.log('reset')
-            reset()
           })
-          
-        },
-      };
-    },
-  });
+          .then(() => {
+            // console.log("reset");
+            reset();
+          });
+      },
+    };
+  },
+});
 </script>

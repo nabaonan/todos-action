@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import styleImport from "vite-plugin-style-import";
 import path from "path";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import usePluginImport from "vite-plugin-importer";
@@ -11,14 +10,7 @@ import {
   NaiveUiResolver,
 } from "unplugin-vue-components/resolvers";
 import { generateModifyVars } from "./build/style/generateModifyVars";
-
-import { camelCase} from 'unplugin-vue-components'
-import ElementPlus from "unplugin-element-plus/vite";
-// https://vitejs.dev/config/
-interface IMatcher {
-  pattern: RegExp;
-  styleDir: string;
-}
+// import { LayuiVueResolver } from "@layui/layui-vue";
 
 export default defineConfig({
   // base: "/dist/",
@@ -29,7 +21,7 @@ export default defineConfig({
     //   // options
     // }),
     ViteComponents({
-      dirs: ['./', './components','src/components'],
+      dirs: ["./", "./components", "src/components"],
       directoryAsNamespace: true,
       resolvers: [
         AntDesignVueResolver({
@@ -39,27 +31,7 @@ export default defineConfig({
           importStyle: "css",
         }),
         NaiveUiResolver(),
-        (name: string) => {
-          
-    
-          if (name.match(/^Lay/)) {
-         
-           
-            // const importName = name.slice(3)
-
-            // console.log('name=',importName)
-           
-            const path = `@layui/layui-vue`
-            return {
-              importName:name,
-              path,
-              sideEffects: [
-                '@layui/layui-vue/lib/index.css'
-              ]
-            }
-          }
-        },
-      
+        // LayuiVueResolver(),
       ],
       // include: [/@layui/],
       //  extensions: ['vue'],

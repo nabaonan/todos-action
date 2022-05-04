@@ -11,7 +11,7 @@ import { useComp } from '@/hooks/useAntd'
 import { DataItem } from '@/types/model'
 import { useEdit } from '@/hooks/useEdit'
 import UpdateDrawer from './InfoDrawer.vue'
-import { ColumnProps } from 'ant-design-vue/lib/table/interface'
+import { ColumnType } from 'ant-design-vue/lib/table/interface'
 export default defineComponent({
   props: {
     data: {
@@ -29,7 +29,7 @@ export default defineComponent({
       return toRaw(item)
     }
   },
-  components:{
+  components: {
     UpdateDrawer
   },
   setup(props, { emit }) {
@@ -73,7 +73,7 @@ export default defineComponent({
       </Space>
     )
 
-    let columns: ColumnProps[] = [
+    let columns: ColumnType[] = [
       {
         title: "完成",
         fixed: "left",
