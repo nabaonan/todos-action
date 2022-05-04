@@ -16,7 +16,7 @@ import { useStore } from "@/store";
 interface IProps {
   data: DataItem[]
   onDeleteItem: (item: DataItem) => void
-  onChange: (data: DataItem | undefined) => void
+  onChange: (data: Partial<DataItem> | undefined) => void
 }
 
 
@@ -43,36 +43,30 @@ export default designPage((props: IProps) => {
 
 
   //react里竟然改个属性需要重新整体赋值，这种方式很恶心！！！受不了,  vue才是yyds！！
-  const loopData = (id: string, other: Partial<DataItem>) => {
-    let changeData: DataItem | undefined
-    data.value = data.value.map((item, i) => {
-      if (id == item.id) {
-        changeData = { ...item, ...other }
-        return changeData
-      } else {
-        return item
-      }
-    })
-    props.onChange?.(changeData)
+  const loopData = (data: DataItem) => {
+    props.onChange?.(data)
   }
 
 
   const edit = (item: DataItem, index: number) => {
 
     old.value = item.title
-    loopData(item.id, {
+    loopData({
+      ...item,
       editing: true,
     })
   }
 
   const finishEdit = (item: DataItem, index: number) => {
-    loopData(item.id, {
+    loopData({
+      ...item,
       editing: false
     })
   }
 
-  const cancelEdit = (id: string) => {
-    loopData(id, {
+  const cancelEdit = (item: DataItem) => {
+    loopData({
+      ...item,
       title: old.value,
       editing: false
     })
@@ -89,7 +83,8 @@ export default designPage((props: IProps) => {
 
         return <Checkbox checked={record.finish} onChange={e => {
 
-          loopData(record.id, {
+          loopData({
+            ...record,
             finish: e.target.checked
           })
 
@@ -107,7 +102,8 @@ export default designPage((props: IProps) => {
         return (record.editing ? <Input
           value={record.title}
           onChange={e => {
-            loopData(record.id, {
+            loopData({
+              ...record,
               title: e.target.value
             })
           }}
@@ -133,7 +129,7 @@ export default designPage((props: IProps) => {
                     finishEdit(item, index)
                   }} type="primary">保存</Button>
                   <Button onClick={() => {
-                    cancelEdit(item.id)
+                    cancelEdit(item)
                   }}>取消</Button>
                 </>
               ) || (
