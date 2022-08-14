@@ -6,7 +6,7 @@ import { Button, Checkbox, Input, Popconfirm, Space, Table } from "antd";
 import { ColumnProps, ColumnsType } from "antd/lib/table";
 import { observer } from "mobx-react-lite";
 import { MutableRefObject, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { computed, defineComponent, designComponent, designPage, effect, reactive, ref, useHooksOnDesign, useReference } from "plain-design-composition";
+import { computed, defineComponent, designComponent, designPage, effect, reactive, ref, useHooksOnDesign, useReference, watchEffect } from "plain-design-composition";
 import InfoDrawer from "./InfoDrawer";
 import { useHookRef } from "@/utils";
 import { useStore } from "@/store";
@@ -38,8 +38,13 @@ export default designPage((props: IProps) => {
   const data = ref<DataItem[]>(props.data)
   const old = ref('')
   effect(() => {
+    console.log('effect', props.data)
     data.value = props.data
   })
+
+  // watchEffect(() => {
+  //   data.value = props.data
+  // })
 
 
   //react里竟然改个属性需要重新整体赋值，这种方式很恶心！！！受不了,  vue才是yyds！！

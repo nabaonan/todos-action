@@ -29,15 +29,25 @@ function App() {
       path: "/antd",
       displayName: "antd",
     },
+    // {
+    //   key: "test",
+    //   path: "/test",
+    //   displayName: "test",
+    // },
+    // {
+    //   key: "test2",
+    //   path: "/test2",
+    //   displayName: "test2",
+    // },
     {
-      key: "test",
-      path: "/test",
-      displayName: "test",
+      key: "mobx",
+      path: "/mobx",
+      displayName: "mobx",
     },
     {
-      key: "test2",
-      path: "/test2",
-      displayName: "test2",
+      key: "hook",
+      path: "/hook",
+      displayName: "hook-mobx",
     },
 
   ];
