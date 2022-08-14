@@ -1,11 +1,3 @@
-/*
- * @Author: 那宝楠 nabaonan@yunlizhihui.com
- * @Date: 2022-08-14 00:35:51
- * @LastEditors: 那宝楠 nabaonan@yunlizhihui.com
- * @LastEditTime: 2022-08-14 17:24:20
- * @FilePath: /react-composition-api-vite-ts/src/store/modules/TodoStore.ts
- * @Description: 
- */
 
 import { StoreKey } from "@/enums/localStore";
 import { DataItem } from "@/types/model"

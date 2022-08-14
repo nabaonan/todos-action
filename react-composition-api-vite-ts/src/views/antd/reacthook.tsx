@@ -1,11 +1,5 @@
-/*
- * @Author: 那宝楠 nabaonan@yunlizhihui.com
- * @Date: 2022-08-14 17:39:47
- * @LastEditors: 那宝楠 nabaonan@yunlizhihui.com
- * @LastEditTime: 2022-08-14 17:44:43
- * @FilePath: /react-composition-api-vite-ts/src/views/antd/reacthook.tsx
- * @Description: 
- */
+
+
 import { observer } from "mobx-react-lite";
 import { Button, Divider } from "antd";
 import { DataItem } from "@/types/model";

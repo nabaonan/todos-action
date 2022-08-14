@@ -1,11 +1,3 @@
-/*
- * @Author: 那宝楠 nabaonan@yunlizhihui.com
- * @Date: 2022-08-14 00:43:17
- * @LastEditors: 那宝楠 nabaonan@yunlizhihui.com
- * @LastEditTime: 2022-08-14 17:53:24
- * @FilePath: /react-composition-api-vite-ts/src/views/antd/mobx.tsx
- * @Description: 
- */
 
 import { useDelete } from "@/hooks/useDelete";
 import { useTodo } from "@/hooks/useTodo";

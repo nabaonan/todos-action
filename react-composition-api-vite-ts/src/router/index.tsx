@@ -1,11 +1,4 @@
-/*
- * @Author: 那宝楠 nabaonan@yunlizhihui.com
- * @Date: 2022-04-23 23:56:59
- * @LastEditors: 那宝楠 nabaonan@yunlizhihui.com
- * @LastEditTime: 2022-08-14 17:42:08
- * @FilePath: /react-composition-api-vite-ts/src/router/index.tsx
- * @Description: 
- */
+
 import { RouteObject, useRoutes } from "react-router-dom";
 import App from '@/App'
 import React from "react";
