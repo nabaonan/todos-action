@@ -1,3 +1,4 @@
+
 # 项目说明
 
 使用各种技术栈实现一个最小实践项目，功能尽可能简单，不涉及复杂逻辑，只感受技术栈的解决方案
@@ -12,3 +13,7 @@
 - 行内编辑
 - 表单提交校验
 
+
+## Star 历史
+
+[![Star History Chart](https://api.star-history.com/svg?repos=nabaonan/airbook-6200u-efi&type=Date)](https://star-history.com/#nabaonan/airbook-6200u-efi&Date)
