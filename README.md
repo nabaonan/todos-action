@@ -16,4 +16,4 @@
 
 ## Star 历史
 
-[![Star History Chart](https://api.star-history.com/svg?repos=nabaonan/airbook-6200u-efi&type=Date)](https://star-history.com/#nabaonan/airbook-6200u-efi&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=nabaonan/todos-action&type=Date)](https://star-history.com/#nabaonan/todos-action&Date)
